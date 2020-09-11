@@ -1,0 +1,25 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI TEST
+  version: '1.0'
+  contact:
+    name: MyName
+    url: 'https://xxxx.jp'
+    email: anyone@xxxxx.jp
+  termsOfService: 'https://xxxx.jp/terms_of_service'
+servers:
+  - url: 'http://localhost:3000'
+    description: openapi test
+paths:  
+  # Dog
+  /api/dogs:
+    $ref: paths/dogs.yaml
+  /api/dogs/name:
+    $ref: paths/dogs/name.yaml
+  /api/dogs/run:
+    $ref: paths/dogs/run.yaml
+  # Cat
+  /api/cats:
+    $ref: paths/cats.yaml
+  /api/cats/:id:
+    $ref: paths/cats/id.yaml
