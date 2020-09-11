@@ -1,0 +1,164 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: anyone@xxxxx.jp
+    name: MyName
+    url: https://xxxx.jp
+  termsOfService: https://xxxx.jp/terms_of_service
+  title: OpenAPI TEST
+  version: "1.0"
+servers:
+- description: openapi test
+  url: http://localhost:3000
+paths:
+  /api/dogs:
+    get:
+      parameters:
+      - in: path
+        name: project_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+                title: Dogs
+                type: array
+          description: dog list
+      summary: 犬一覧
+      tags:
+      - dogs
+  /api/dogs/name:
+    get:
+      parameters:
+      - in: path
+        name: project_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: dog name
+      summary: 犬の名前
+      tags:
+      - dogs
+  /api/dogs/run:
+    get:
+      parameters:
+      - in: path
+        name: project_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                title: Dog
+                type: boolean
+          description: dog run
+      summary: 犬が走る
+      tags:
+      - dogs
+  /api/cats:
+    get:
+      parameters:
+      - in: path
+        name: project_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Cats_Cat'
+                title: Cats
+                type: array
+          description: cat list
+      summary: 猫一覧
+      tags:
+      - cats
+  /api/cats/:id:
+    get:
+      parameters:
+      - in: path
+        name: project_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cat'
+          description: cat
+      summary: 猫詳細
+      tags:
+      - cats
+components:
+  schemas:
+    Cats_Cat:
+      example:
+        owner:
+          address: address
+          name: name
+          id: 6
+        name: name
+        id: 0
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        owner:
+          $ref: '#/components/schemas/Cats_CatOwner'
+      required:
+      - id
+      - name
+      type: object
+    Cats_CatOwner:
+      example:
+        address: address
+        name: name
+        id: 6
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        address:
+          type: string
+      type: object
+    Cat:
+      example:
+        name: name
+        id: 0
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      title: Cat
+      type: object
+    inline_response_200:
+      example:
+        name: name
+        id: 0
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
