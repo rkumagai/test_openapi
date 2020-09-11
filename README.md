@@ -1,20 +1,20 @@
-## MEMO
+OpenAPI検証用
 
+1. YAMLファイルの構文・構成管理について
+2. Rubyコード自動生成(ActiveModel::Serializer)について
 
-- YAMLファイルの結合
+## 手順
 
-```
-openapi-generator generate -g openapi-yaml -i root.yaml -o openapi
-```
+1. root.yamlを作成
+  - root.yamlとpaths配下のyamlを編集する。
+2. openapi.yamlの生成
+  - openapi-generatorでroot.yamlからopenapi.yamlを生成する。
+  ```
+  openapi-generator generate -g openapi-yaml -i root.yaml -o openapi
+  ```
 
-- Rubyコードの生成
-
-```
-openapi-generator generate -g ruby -i openapi/openapi/openapi.yaml -o dist
-```
-
-- ActiveModel::Serializerの自動生成
-
-https://github.com/takanamito/openapi2ruby
-
-./scripts/openapi2ruby/bin/openapi2ruby generate openapi/openapi/openapi.yaml --out aaa kk
+3. Rubyコードのl生成
+  - openapi2rubyでopenapi.yamlからRubyコードをserializers配下に生成する。
+  ```
+  ./scripts/openapi2ruby/bin/openapi2ruby generate openapi/openapi/openapi.yaml --out serializers
+  ```
