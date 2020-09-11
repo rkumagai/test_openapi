@@ -1,0 +1,25 @@
+get:
+  summary: 犬一覧
+  tags:
+    - dogs
+  parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: integer
+  responses:
+    "200":
+      description: dog list
+      content:
+        application/json:
+          schema:
+            title: Dogs
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string

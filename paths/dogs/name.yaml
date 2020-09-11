@@ -1,0 +1,23 @@
+get:
+  summary: 犬の名前
+  tags:
+    - dogs
+  parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: integer
+  responses:
+    "200":
+      description: dog name
+      content:
+        application/json:
+          schema:
+            title: Dog
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
