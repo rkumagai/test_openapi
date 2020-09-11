@@ -22,10 +22,10 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            applidogion/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/inline_response_200'
+                  $ref: '#/components/schemas/Dogs_Dog'
                 title: Dogs
                 type: array
           description: dog list
@@ -45,7 +45,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                $ref: '#/components/schemas/DogsName'
           description: dog name
       summary: 犬の名前
       tags:
@@ -103,13 +103,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Cat'
+                $ref: '#/components/schemas/CatsId'
           description: cat
       summary: 猫詳細
       tags:
       - cats
 components:
   schemas:
+    Dogs_Dog:
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        skills:
+          items:
+            $ref: '#/components/schemas/Dogs_Skills'
+          type: array
+      required:
+      - id
+      - name
+      type: object
+    Dogs_Skills:
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      title: DogsName
+      type: object
+    DogsName:
+      example:
+        name: name
+        id: 0
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      title: DogsName
+      type: object
     Cats_Cat:
       example:
         owner:
@@ -124,12 +157,12 @@ components:
         name:
           type: string
         owner:
-          $ref: '#/components/schemas/Cats_CatOwner'
+          $ref: '#/components/schemas/Cats_Owner'
       required:
       - id
       - name
       type: object
-    Cats_CatOwner:
+    Cats_Owner:
       example:
         address: address
         name: name
@@ -142,7 +175,7 @@ components:
         address:
           type: string
       type: object
-    Cat:
+    CatsId:
       example:
         name: name
         id: 0
@@ -153,12 +186,3 @@ components:
           type: string
       title: Cat
       type: object
-    inline_response_200:
-      example:
-        name: name
-        id: 0
-      properties:
-        id:
-          type: integer
-        name:
-          type: string

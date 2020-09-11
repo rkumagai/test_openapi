@@ -14,10 +14,10 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Cat'
+            $ref: '#/components/schemas/CatsId'
 components:
   schemas:
-    Cat:
+    CatsId:
       title: Cat
       type: object
       properties:

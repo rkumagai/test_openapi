@@ -12,14 +12,33 @@ get:
     "200":
       description: dog list
       content:
-        application/json:
+        applidogion/json:
           schema:
             title: Dogs
             type: array
             items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                name:
-                  type: string
+              $ref: '#/components/schemas/Dogs_Dog'
+components:
+  schemas:
+    Dogs_Dog:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dogs_Skills'
+      required:
+        - id
+        - name
+    Dogs_Skills:
+      title: DogsName
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string

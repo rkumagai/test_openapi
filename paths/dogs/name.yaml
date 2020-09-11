@@ -14,10 +14,14 @@ get:
       content:
         application/json:
           schema:
-            title: Dog
-            type: object
-            properties:
-              id:
-                type: integer
-              name:
-                type: string
+            $ref: '#/components/schemas/DogsName'
+components:
+  schemas:
+    DogsName:
+      title: DogsName
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string

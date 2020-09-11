@@ -28,11 +28,11 @@ components:
         name:
           type: string
         owner:
-          $ref: '#/components/schemas/Cats_CatOwner'
+          $ref: '#/components/schemas/Cats_Owner'
       required:
         - id
         - name
-    Cats_CatOwner:
+    Cats_Owner:
       type: object
       properties:
         id:
