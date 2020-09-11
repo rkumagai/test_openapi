@@ -5,15 +5,16 @@ OpenAPI検証用
 
 ## 手順
 
-1. root.yamlを作成
-  - root.yamlとpaths配下のyamlを編集する。
-2. openapi.yamlの生成
+### 1. root.yamlを作成
+- root.yamlとpaths配下のyamlを追加・編集する。
+  
+### 2. openapi.yamlの生成
   - openapi-generatorでroot.yamlからopenapi.yamlを生成する。
   ```
   openapi-generator generate -g openapi-yaml -i root.yaml -o openapi
   ```
 
-3. Rubyコードのl生成
+### 3. Rubyコードの生成
   - openapi2rubyでopenapi.yamlからRubyコードをserializers配下に生成する。
   ```
   ./scripts/openapi2ruby/bin/openapi2ruby generate openapi/openapi/openapi.yaml --out serializers
