@@ -25,10 +25,15 @@ module Openapi2ruby
       @ref.split('/').last
     end
 
+    def ref_method
+      ref.sub(/^.*_/, '').underscore
+    end
+
     # OpenAPI schema ref property class name
     # @return [String]
     def ref_class
-      ref.camelcase
+      # ref.camelcase
+      ref.gsub('_', '::')
     end
 
     # Whether property is ref or not

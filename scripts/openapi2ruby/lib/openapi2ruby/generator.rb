@@ -1,6 +1,7 @@
 require 'active_support/core_ext/string/inflections'
 require 'erb'
 require 'pathname'
+require 'fileutils'
 
 module Openapi2ruby
   class Generator
@@ -27,6 +28,10 @@ module Openapi2ruby
       generated_class = ERB.new(template, nil, '-').result(binding)
 
       output_file = Pathname.new(output_path).join("#{@schema.name.underscore}_serializer.rb")
+
+      dir = File.dirname(output_file)
+      FileUtils.mkdir_p(dir) unless Dir::exist?(dir)
+
       File.open(output_file.to_s, 'w') { |file| file << generated_class }
       output_file.to_s
     end

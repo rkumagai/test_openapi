@@ -8,7 +8,8 @@ module Openapi2ruby
     # OpenAPI camelcase schema name
     # @return [String]
     def name
-      @name.camelcase
+      # @name.camelcase
+      @name.gsub('_', '::').camelcase
     end
 
     # OpenAPI required properties name

@@ -8,7 +8,6 @@ module Openapi2ruby
       raise "File not found. #{path}" unless File.exist?(path)
 
       openapi = Openapi2ruby::Parser.parse(path)
-      p openapi.schemas
     end
 
     option :template, type: :string
