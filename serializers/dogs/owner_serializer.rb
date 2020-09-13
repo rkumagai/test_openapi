@@ -1,5 +1,5 @@
-class Dogs::SkillsSerializer < ActiveModel::Serializer
-  attributes :id, :name
+class Dogs::OwnerSerializer < ActiveModel::Serializer
+  attributes :id, :name, :address
 
 
   def id
@@ -10,6 +10,11 @@ class Dogs::SkillsSerializer < ActiveModel::Serializer
   def name
     type_check(:name, [String])
     object.name
+  end
+
+  def address
+    type_check(:address, [String])
+    object.address
   end
 
   private
