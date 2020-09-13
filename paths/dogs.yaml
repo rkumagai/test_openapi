@@ -14,12 +14,21 @@ get:
       content:
         applidogion/json:
           schema:
-            title: Dogs
-            type: array
-            items:
-              $ref: '#/components/schemas/Dogs_Dog'
+            $ref: '#/components/schemas/Dogs'
+          examples:
+            example:
+              $ref: 'paths/dogs.example.yaml'
 components:
   schemas:
+    Dogs:
+      title: Dogs
+      type: object
+      properties:
+        dogs:
+          type: array
+          description: プロジェクトに紐づく保存済みのリターン（下書きがあれば反映された状態）
+          items:
+            $ref: '#/components/schemas/Dogs_Dog'
     Dogs_Dog:
       type: object
       properties:
@@ -27,18 +36,17 @@ components:
           type: integer
         name:
           type: string
-        skills:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dogs_Skills'
+        owner:
+          $ref: '#/components/schemas/Dogs_Owner'
       required:
         - id
         - name
-    Dogs_Skills:
-      title: DogsName
+    Dogs_Owner:
       type: object
       properties:
         id:
           type: integer
         name:
+          type: string
+        address:
           type: string

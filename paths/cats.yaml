@@ -14,12 +14,21 @@ get:
       content:
         application/json:
           schema:
-            title: Cats
-            type: array
-            items:
-              $ref: '#/components/schemas/Cats_Cat'
+            $ref: '#/components/schemas/Cats'
+          examples:
+            example:
+              $ref: 'paths/cats.example.yaml'
 components:
   schemas:
+    Cats:
+      title: Cats
+      type: object
+      properties:
+        cats:
+          type: array
+          description: プロジェクトに紐づく保存済みのリターン（下書きがあれば反映された状態）
+          items:
+            $ref: '#/components/schemas/Cats_Cat'
     Cats_Cat:
       type: object
       properties:

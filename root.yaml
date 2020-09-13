@@ -15,11 +15,11 @@ paths:
   /api/dogs:
     $ref: paths/dogs.yaml
   /api/dogs/name:
-    $ref: paths/dogs/name.yaml
+    $ref: paths/dogs_name.yaml
   /api/dogs/run:
-    $ref: paths/dogs/run.yaml
+    $ref: paths/dogs_run.yaml
   # Cat
   /api/cats:
     $ref: paths/cats.yaml
   /api/cats/:id:
-    $ref: paths/cats/id.yaml
+    $ref: paths/cats_id.yaml

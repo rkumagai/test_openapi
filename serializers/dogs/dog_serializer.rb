@@ -1,9 +1,8 @@
 class Dogs::DogSerializer < ActiveModel::Serializer
-  attributes :id, :name, :skills
+  attributes :id, :name, :owner
 
 
-  has_many :skills, serializer: Dogs::SkillsSerializer
-
+  has_one :owner, serializer: Dogs::OwnerSerializer
 
 
   def id

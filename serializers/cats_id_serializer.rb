@@ -1,5 +1,8 @@
 class CatsIdSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :owner
+
+
+  has_one :owner, serializer: CatsId::OwnerSerializer
 
 
   def id
