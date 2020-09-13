@@ -1,5 +1,6 @@
 get:
   summary: 犬一覧
+  description: Description
   tags:
     - dogs
   parameters:
@@ -26,7 +27,6 @@ components:
       properties:
         dogs:
           type: array
-          description: プロジェクトに紐づく保存済みのリターン（下書きがあれば反映された状態）
           items:
             $ref: '#/components/schemas/Dogs_Dog'
     Dogs_Dog:

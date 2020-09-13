@@ -1,5 +1,6 @@
 get:
   summary: 犬の名前
+  description: Description
   tags:
     - dogs
   parameters:

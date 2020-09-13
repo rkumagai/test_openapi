@@ -1,5 +1,6 @@
 get:
   summary: 猫詳細
+  description: Description
   tags:
     - cats
   parameters:

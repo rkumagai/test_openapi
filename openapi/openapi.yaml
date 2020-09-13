@@ -34,6 +34,7 @@ paths:
       - dogs
   /api/dogs/name:
     get:
+      description: 概要
       parameters:
       - in: path
         name: project_id
@@ -139,7 +140,6 @@ components:
     Dogs:
       properties:
         dogs:
-          description: プロジェクトに紐づく保存済みのリターン（下書きがあれば反映された状態）
           items:
             $ref: '#/components/schemas/Dogs_Dog'
           type: array
@@ -202,7 +202,6 @@ components:
           id: 0
       properties:
         cats:
-          description: プロジェクトに紐づく保存済みのリターン（下書きがあれば反映された状態）
           items:
             $ref: '#/components/schemas/Cats_Cat'
           type: array

@@ -1,5 +1,6 @@
 get:
   summary: 猫一覧
+  description: Description
   tags:
     - cats
   parameters:
@@ -26,7 +27,6 @@ components:
       properties:
         cats:
           type: array
-          description: プロジェクトに紐づく保存済みのリターン（下書きがあれば反映された状態）
           items:
             $ref: '#/components/schemas/Cats_Cat'
     Cats_Cat:
