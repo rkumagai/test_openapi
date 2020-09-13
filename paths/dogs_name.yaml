@@ -1,0 +1,30 @@
+get:
+  summary: 犬の名前
+  tags:
+    - dogs
+  parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: integer
+  responses:
+    "200":
+      description: dog name
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DogsName'
+          examples:
+            example:
+              $ref: 'paths/dogs_name.example.yaml'
+components:
+  schemas:
+    DogsName:
+      title: DogsName
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string

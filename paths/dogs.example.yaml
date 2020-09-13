@@ -1,0 +1,6 @@
+value:
+  dogs:
+    - id: 1
+      name: Pochi
+    - id: 2
+      name: Taro

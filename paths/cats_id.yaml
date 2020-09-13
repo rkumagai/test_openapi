@@ -1,0 +1,37 @@
+get:
+  summary: 猫詳細
+  tags:
+    - cats
+  parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: integer
+  responses:
+    "200":
+      description: cat
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CatsId'
+          examples:
+            example:
+              $ref: 'paths/cats_id.example.yaml'
+components:
+  schemas:
+    CatsId:
+      title: Cat
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        owner:
+          $ref: '#/components/schemas/CatsId_Owner'
+    CatsId_Owner:
+      type: object
+      properties:
+        id:
+          type: integer
