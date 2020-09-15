@@ -18,7 +18,7 @@ get:
             $ref: '#/components/schemas/DogsName'
           examples:
             example:
-              $ref: 'paths/dogs_name.example.yaml'
+              $ref: 'dogs_name.example.yaml'
 components:
   schemas:
     DogsName:

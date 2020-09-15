@@ -13,6 +13,7 @@ servers:
 paths:
   /api/dogs:
     get:
+      description: Description
       parameters:
       - in: path
         name: project_id
@@ -34,7 +35,7 @@ paths:
       - dogs
   /api/dogs/name:
     get:
-      description: 概要
+      description: Description
       parameters:
       - in: path
         name: project_id
@@ -74,6 +75,7 @@ paths:
       - dogs
   /api/cats:
     get:
+      description: Description
       parameters:
       - in: path
         name: project_id
@@ -95,6 +97,7 @@ paths:
       - cats
   /api/cats/:id:
     get:
+      description: Description
       parameters:
       - in: path
         name: project_id
